@@ -9,7 +9,7 @@ export class Video extends CustomEntityHandler {
   @Column({ unique: true })
   videoId: string;
 
-  @OneToOne(type => Stats, { cascade: true })
+  @OneToOne(() => Stats, { cascade: true })
   @JoinColumn()
   stats: Stats;
 

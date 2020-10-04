@@ -1,9 +1,8 @@
-import { response } from 'express';
-import { Stats } from './entity/stats';
-import { YouTubeResponse } from './../stats/interface/YouTubeResponse';
-
-import { take, pluck } from 'rxjs/operators';
 import { HttpService, Injectable } from '@nestjs/common';
+import { pluck, take } from 'rxjs/operators';
+import { YouTubeResponse } from './../stats/interface/YouTubeResponse';
+import { Stats } from './entity/stats';
+
 
 @Injectable()
 export class StatsService {

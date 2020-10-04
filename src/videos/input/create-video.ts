@@ -1,6 +1,5 @@
 import { Transform } from 'class-transformer';
 import { IsNotEmpty, IsString, Matches } from 'class-validator';
-import { retry } from 'rxjs/operators';
 import { Stats } from './../../stats/entity/stats';
 
 
