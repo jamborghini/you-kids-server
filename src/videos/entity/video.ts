@@ -1,32 +1,16 @@
-import { BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm/index';
-import { Channel } from 'src/channel/entity/channel';
+import { Stats } from './../../stats/entity/stats';
+import { CustomEntityHandler } from 'src/shared/util/CustomEntityHandler';
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
+
 
 @Entity()
-export class Video extends BaseEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
+export class Video extends CustomEntityHandler {
 
-  @Column()
-  link: string;
+  @Column({ unique: true })
+  videoId: string;
 
-  @Column()
-  title: string
-
-  @Column()
-  video_id: string;
-
-  @Column()
-  thumbnail_url: string
-
-  @Column()
-  views: number;
-
-  @Column()
-  uploadedAt: Date;
-
-
-  @ManyToOne(() => Channel, channel => channel.videos)
+  @OneToOne(type => Stats, { cascade: true })
   @JoinColumn()
-  channel: Channel;
+  stats: Stats;
 
 }

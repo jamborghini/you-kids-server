@@ -5,6 +5,7 @@
   "username": "root",
   "password": "root",
   "database": "you_poop",
-  "entities": ["dist/**/*.entity{.ts,.js}"],
-  "synchronize": true
+  "entities": ["dist/**/entity/*{.ts,.js}"],
+  "synchronize": true,
+  "dropSchema": false
 }

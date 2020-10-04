@@ -1,36 +1,26 @@
-import { IsDate, IsNumber, IsObject, IsOptional, IsPositive, IsString, Matches, ValidateNested } from 'class-validator';
-import { Type } from 'class-transformer';
-import { Reference } from 'src/shared/reference';
-import { Channel } from 'src/channel/entity/channel';
+import { Transform } from 'class-transformer';
+import { IsNotEmpty, IsString, Matches } from 'class-validator';
+import { retry } from 'rxjs/operators';
+import { Stats } from './../../stats/entity/stats';
 
 
 export class CreateVideo {
 
-  @Type(() => Reference)
-  @ValidateNested()
-  @IsObject()
-  channel: Channel;
-
   @IsString()
-  @Matches(/http(?:s?):\/\/(?:www\.)?youtu(?:be\.com\/watch\?v=|\.be\/)([\w\-\_]*)(&()[\w\=]*)?/)
-  link: string;
+  @IsNotEmpty()
+  @Matches(/^[\w-]{11}$/,{message: 'Given link does not satisfy required pattern'})
+  @Transform(value => {
+    if ('string' === typeof value) {
+      const match = value.match(/^(?:https?:\/\/)?(?:www\.)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))((\w|-){11})?$/);
+      
+      if (match) {
+        return match[1];
+      }
+    }
+    return null;
+  })
+  videoId: string;
 
-  @IsString()
-  title: string;
-
-  @IsString()
-  video_id: string;
-
-  @IsString()
-  @Matches(/(ytimg.com.vi)/ig)
-  thumbnail_url: string;
-
-  @IsNumber()
-  @IsPositive()
-  views: number;
-
-  @IsDate()
-  @IsOptional()
-  uploadedAt: Date;
+  stats: Stats;
 
 }

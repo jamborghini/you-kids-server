@@ -1,0 +1,70 @@
+{
+    "kind": "youtube#videoListResponse",
+    "etag": "8mg81pmlJ1Hav2XO4aSYuaodh48",
+    "items": [
+        {
+            "kind": "youtube#video",
+            "etag": "XLBQuwlGC081OgJJWMEFdlNVKJQ",
+            "id": "C7XVgN9KVNA",
+            "snippet": {
+                "publishedAt": "2018-12-23T20:59:48Z",
+                "channelId": "UCkJh-DoB5TKX7qIV2cUGHcQ",
+                "title": "Super bridge for the super car - Lego Technic",
+                "description": "The super car deserves the super bridge. Built in 96 hours, using 32,000 + pieces.\n\n\nTechnical elements:\nNumber of pieces: 32,000+\nSize: 8 feet long / 3 feet high / 2.6 feet wide\n36 Lego LED lights\n740 Lego truck elements\n\nThis project was made with great support from Lego Technic and Fatherly\nMusic: Highway Wildflowers, YouTube Audio library",
+                "thumbnails": {
+                    "default": {
+                        "url": "https://i.ytimg.com/vi/C7XVgN9KVNA/default.jpg",
+                        "width": 120,
+                        "height": 90
+                    },
+                    "medium": {
+                        "url": "https://i.ytimg.com/vi/C7XVgN9KVNA/mqdefault.jpg",
+                        "width": 320,
+                        "height": 180
+                    },
+                    "high": {
+                        "url": "https://i.ytimg.com/vi/C7XVgN9KVNA/hqdefault.jpg",
+                        "width": 480,
+                        "height": 360
+                    },
+                    "standard": {
+                        "url": "https://i.ytimg.com/vi/C7XVgN9KVNA/sddefault.jpg",
+                        "width": 640,
+                        "height": 480
+                    },
+                    "maxres": {
+                        "url": "https://i.ytimg.com/vi/C7XVgN9KVNA/maxresdefault.jpg",
+                        "width": 1280,
+                        "height": 720
+                    }
+                },
+                "channelTitle": "The Brick Wall",
+                "tags": [
+                    "Lego Technic",
+                    "Lego tecknik",
+                    "Лего техник",
+                    "Bugatti Chiron"
+                ],
+                "categoryId": "27",
+                "liveBroadcastContent": "none",
+                "defaultLanguage": "en",
+                "localized": {
+                    "title": "Super bridge for the super car - Lego Technic",
+                    "description": "The super car deserves the super bridge. Built in 96 hours, using 32,000 + pieces.\n\n\nTechnical elements:\nNumber of pieces: 32,000+\nSize: 8 feet long / 3 feet high / 2.6 feet wide\n36 Lego LED lights\n740 Lego truck elements\n\nThis project was made with great support from Lego Technic and Fatherly\nMusic: Highway Wildflowers, YouTube Audio library"
+                },
+                "defaultAudioLanguage": "en"
+            },
+            "statistics": {
+                "viewCount": "583914",
+                "likeCount": "6093",
+                "dislikeCount": "329",
+                "favoriteCount": "0",
+                "commentCount": "537"
+            }
+        }
+    ],
+    "pageInfo": {
+        "totalResults": 1,
+        "resultsPerPage": 1
+    }
+}
