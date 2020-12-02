@@ -28,8 +28,8 @@ export class UserController {
     return await this.userService.deleteOne(id);
   }
 
-  @MinRole(1)
-  @UseGuards(JwtGuard, RolesGuard)
+  // @MinRole(1)
+  // @UseGuards(JwtGuard, RolesGuard)
   @Get()
   async getUsers(): Promise<User[]> {
     return await User.find();
