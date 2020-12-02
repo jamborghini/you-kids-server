@@ -5,63 +5,63 @@
 //   "Set quicktype target language"
 
 export interface YouTubeResponse {
-    kind: string;
-    etag: string;
-    items: Item[];
-    pageInfo: PageInfo;
+  kind: string;
+  etag: string;
+  items: Item[];
+  pageInfo: PageInfo;
 }
 
 interface Item {
-    kind: string;
-    etag: string;
-    id: string;
-    snippet: Snippet;
-    statistics: Statistics;
+  kind: string;
+  etag: string;
+  id: string;
+  snippet: Snippet;
+  statistics: Statistics;
 }
 
 interface Snippet {
-    publishedAt: string;
-    channelId: string;
-    title: string;
-    description: string;
-    thumbnails: Thumbnails;
-    channelTitle: string;
-    tags: string[];
-    categoryId: string;
-    liveBroadcastContent: string;
-    defaultLanguage: string;
-    localized: Localized;
-    defaultAudioLanguage: string;
+  publishedAt: string;
+  channelId: string;
+  title: string;
+  description: string;
+  thumbnails: Thumbnails;
+  channelTitle: string;
+  tags: string[];
+  categoryId: string;
+  liveBroadcastContent: string;
+  defaultLanguage: string;
+  localized: Localized;
+  defaultAudioLanguage: string;
 }
 
 interface Localized {
-    title: string;
-    description: string;
+  title: string;
+  description: string;
 }
 
 interface Thumbnails {
-    default: Default;
-    medium: Default;
-    high: Default;
-    standard: Default;
-    maxres: Default;
+  default: Default;
+  medium: Default;
+  high: Default;
+  standard: Default;
+  maxres: Default;
 }
 
 interface Default {
-    url: string;
-    width: number;
-    height: number;
+  url: string;
+  width: number;
+  height: number;
 }
 
 interface Statistics {
-    viewCount: string;
-    likeCount: string;
-    dislikeCount: string;
-    favoriteCount: string;
-    commentCount: string;
+  viewCount: string;
+  likeCount: string;
+  dislikeCount: string;
+  favoriteCount: string;
+  commentCount: string;
 }
 
 interface PageInfo {
-    totalResults: number;
-    resultsPerPage: number;
+  totalResults: number;
+  resultsPerPage: number;
 }

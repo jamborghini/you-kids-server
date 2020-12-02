@@ -1,7 +1,10 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, UseGuards } from '@nestjs/common';
 import { UserService } from 'src/user/user.service';
 import { CreateUser } from 'src/user/input/create-user';
 import { User } from 'src/user/entity/user';
+import { MinRole } from 'src/auth/decorator/roles.';
+import { JwtGuard } from 'src/auth/guards/jwt.guard';
+import { RolesGuard } from 'src/auth/guards/roles.guard';
 
 @Controller('user')
 export class UserController {
@@ -24,6 +27,8 @@ export class UserController {
     return await this.userService.deleteOne(id);
   }
 
+  @MinRole(1)
+  @UseGuards(JwtGuard, RolesGuard)
   @Get()
   async getUsers(): Promise<User[]> {
     return await User.find();

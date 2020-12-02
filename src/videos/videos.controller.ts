@@ -1,4 +1,4 @@
-import { StatsService } from './../stats/stats.service';
+import { StatsService } from 'src/stats/stats.service';
 import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, Post } from '@nestjs/common';
 import { Video } from 'src/videos/entity/video';
 import { CreateVideo } from 'src/videos/input/create-video';
@@ -20,8 +20,8 @@ export class VideosController {
 
     body.stats = await this.statsService.createStats(body.videoId);
 
-    if (body.stats == null) {
-      throw new NotFoundException()
+    if (null == body.stats) {
+      throw new NotFoundException();
     }
 
     return Video.create(body).save();
@@ -29,8 +29,7 @@ export class VideosController {
 
   @Get(':videoId')
   async getVideo(@Param('videoId') videoId: string): Promise<Video> {
-    const video = await Video.findOne({where: {videoId}, relations :['stats']});
-    
+    const video = await Video.findOne({ where: { videoId }, relations: ['stats'] });
     if (null == video) {
       throw new NotFoundException();
     }
