@@ -1,21 +1,21 @@
-import { CanActivate, ExecutionContext, forwardRef, Inject, Injectable } from '@nestjs/common';
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { Reflector } from '@nestjs/core';
 import { UserService } from 'src/user/user.service';
 import { User } from 'src/user/entity/user';
+import { Role } from 'src/auth/decorator/roles.';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
 
   constructor(
     private reflector: Reflector,
-    @Inject(forwardRef(() => UserService))
     private userService: UserService,
   ) {
   }
 
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
-    const role = this.reflector.get<number>('role', context.getHandler());
+    const role = this.reflector.get<number>(Role, context.getHandler());
 
     if (null == role) {
       return true;
@@ -29,10 +29,10 @@ export class RolesGuard implements CanActivate {
       let hasPermissions: boolean = false;
       console.log({ required: role, userRole: user.role });
 
-
       if (hasRole()) {
         hasPermissions = true;
       }
+
       return hasPermissions;
     });
   }

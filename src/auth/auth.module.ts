@@ -12,7 +12,7 @@ import { UserModule } from 'src/user/user.module';
     JwtModule.registerAsync({
       useFactory: async () => ({
         secret: process.env.JWT_SECRET_KEY,
-        signOptions: { expiresIn: '10m' },
+        signOptions: { expiresIn: '3h' },
       }),
     })],
   providers: [AuthService, RolesGuard, JwtGuard, JwtStrategy],
