@@ -2,12 +2,12 @@ import { StatsService } from 'src/stats/stats.service';
 import { Body, ConflictException, Controller, Delete, Get, NotFoundException, Param, Post } from '@nestjs/common';
 import { Video } from 'src/videos/entity/video';
 import { CreateVideo } from 'src/videos/input/create-video';
+import { Id } from 'src/shared/decorator/id';
 
 @Controller('videos')
 export class VideosController {
 
   constructor(private statsService: StatsService) {
-
   }
 
   @Post()
@@ -43,7 +43,7 @@ export class VideosController {
   }
 
   @Delete()
-  async deleteVideo(@Param('id') id: number): Promise<Video> {
+  async deleteVideo(@Id() id: number): Promise<Video> {
     const video = await Video.findOne(id);
 
     if (null == video) {

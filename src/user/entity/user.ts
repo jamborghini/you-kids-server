@@ -1,7 +1,8 @@
-import { BeforeInsert, Column, Entity } from 'typeorm';
+import { BeforeInsert, Column, Entity, OneToMany } from 'typeorm';
 import { hash } from 'bcrypt';
 import { CustomEntityHandler } from 'src/shared/util/CustomEntityHandler';
 import { Role } from 'src/user/enum/role';
+import { Suggested } from 'src/suggested/entity/suggested';
 
 @Entity()
 export class User extends CustomEntityHandler {
@@ -17,6 +18,9 @@ export class User extends CustomEntityHandler {
 
   @Column({ type: 'enum', enum: Role, default: Role.User })
   role: Role;
+
+  @OneToMany(() => Suggested, suggested => suggested.suggester)
+  suggestions: Suggested[];
 
   toJSON() {
     const { password, ...result } = this;

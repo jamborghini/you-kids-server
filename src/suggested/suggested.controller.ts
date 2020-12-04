@@ -1,4 +1,5 @@
 import { Controller } from '@nestjs/common';
 
 @Controller('suggested')
-export class SuggestedController {}
+export class SuggestedController {
+}

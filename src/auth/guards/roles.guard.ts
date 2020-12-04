@@ -15,7 +15,7 @@ export class RolesGuard implements CanActivate {
   }
 
   canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
-    const role = this.reflector.get<number>(Role, context.getHandler());
+    const role = this.reflector.get(Role, context.getHandler());
 
     if (null == role) {
       return true;
@@ -25,15 +25,7 @@ export class RolesGuard implements CanActivate {
     const user: User = request.user;
 
     return this.userService.findOne(user.id).then(user => {
-      const hasRole = () => user.role >= role;
-      let hasPermissions: boolean = false;
-      console.log({ required: role, userRole: user.role });
-
-      if (hasRole()) {
-        hasPermissions = true;
-      }
-
-      return hasPermissions;
+      return user.role >= role;
     });
   }
 

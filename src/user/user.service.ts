@@ -1,11 +1,13 @@
 import { ForbiddenException, Injectable, NotFoundException, Param } from '@nestjs/common';
 import { User } from 'src/user/entity/user';
 import { AuthService } from 'src/auth/services/auth.service';
+import { Id } from 'src/shared/decorator/id';
 
 @Injectable()
 export class UserService {
 
-  constructor(private readonly authService: AuthService) {
+  constructor(
+    private readonly authService: AuthService) {
   }
 
   async login(user: User): Promise<{ token: string }> {
@@ -40,7 +42,7 @@ export class UserService {
   }
 
 
-  async deleteOne(@Param('id') id: number): Promise<User> {
+  async deleteOne(@Id() id: number): Promise<User> {
     const user = await User.findOne(id);
 
     if (null == user) {
@@ -51,7 +53,8 @@ export class UserService {
     return user;
   }
 
-  async findOne(@Param('id') id: number): Promise<User> {
+
+  async findOne(@Id() id: number): Promise<User> {
     return await User.findOne({ id });
   }
 
