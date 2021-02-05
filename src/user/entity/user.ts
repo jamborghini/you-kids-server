@@ -16,6 +16,9 @@ export class User extends CustomEntityHandler {
   @Column()
   password: string;
 
+  @Column({default: false})
+  isEmailConfirmed: boolean;
+
   @Column({ type: 'enum', enum: Role, default: Role.User })
   role: Role;
 
